@@ -1,0 +1,39 @@
+<div class="phone-details" *ngIf="phone">
+  <button class="back-button" routerLink="/">← Torna Indietro</button>
+
+  <div class="phone-content">
+    <div class="image-gallery">
+      <img *ngFor="let image of phone.imageurl" [src]="image" [alt]="phone.model" class="phone-image">
+    </div>
+
+    <button class="buy">Compra Ora</button>
+
+    <div class="phone-specs">
+      <h1>{{ phone.brand }} {{ phone.model }}</h1>
+
+      <!-- Basic Info -->
+      <p><strong>Prezzo:</strong> ${{ phone.price }}</p>
+      <p><strong>Categoria:</strong> {{ phone.category }}</p>
+      <p><strong>Anno di rilascio:</strong> {{ phone.releaseYear }}</p>
+      <p><strong>Voto medio:</strong> {{ phone.rating }}/5</p>
+
+      <!-- Technical Specs -->
+      <h2>Specifiche Tecniche</h2>
+      <p><strong>Sistema Operativo:</strong> {{ phone.operatingSystem }}</p>
+      <p><strong>Processore:</strong> {{ phone.processor }}</p>
+      <p><strong>RAM:</strong> {{ phone.ram }}</p>
+      <p><strong>Capacità della memoria:</strong> {{ phone.storageCapacity.join(', ') }}</p>
+
+      <!-- Display & Design -->
+      <h2>Display & Design</h2>
+      <p><strong>Dimensioni Schermo:</strong> {{ phone.screenSize }}"</p>
+      <p><strong>Peso:</strong> {{ phone.weight }}g</p>
+      <p><strong>Colori:</strong> {{ phone.colorOptions.join(', ') }}</p>
+
+      <!-- Battery & Connectivity -->
+      <h2>Batteria & Connettività</h2>
+      <p><strong>Batteria:</strong> {{ phone.batteryCapacity }} mAh</p>
+      <p><strong>Connettività:</strong> {{ phone.connectivity.join(', ') }}</p>
+    </div>
+  </div>
+  </div>
