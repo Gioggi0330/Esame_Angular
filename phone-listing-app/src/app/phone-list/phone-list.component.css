@@ -205,6 +205,28 @@
   font-size: 18px;
 }
 
+/* Phone list */
+.phone-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.phone-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 200px;
+}
+
+.phone-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 /* Keyframe Animations */
 
 /* Fade in & slide element entrance */

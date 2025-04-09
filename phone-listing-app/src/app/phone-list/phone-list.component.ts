@@ -29,7 +29,10 @@ export class PhoneListComponent implements OnInit {
 
     this.phoneService.getPhones().subscribe({
       next: (data) => {
-        this.phones = data;
+        this.phones = data.map(phone => ({
+          ...phone,
+          imageUrl: `assets/images/phones/${phone.id}/image1.jpg` // Aggiunge il percorso dell'immagine
+        }));
         this.isSearching = false;
       },
       error: (err) => {

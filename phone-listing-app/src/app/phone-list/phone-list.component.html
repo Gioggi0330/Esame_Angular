@@ -41,6 +41,15 @@
   </div>
 </div>
 
+<div class="phone-list">
+  <div *ngFor="let phone of phones" class="phone-item">
+    <img [src]="phone.imageUrl" [alt]="phone.model" class="phone-image">
+    <h2>{{ phone.brand }} {{ phone.model }}</h2>
+    <p><strong>Prezzo:</strong> ${{ phone.price }}</p>
+    <button (click)="goToDetails(phone.id)">Dettagli</button>
+  </div>
+</div>
+
 <div *ngIf="!isSearching && phones.length === 0 && !searchError" class="no-results">
   No phones available. Try a different search.
 </div>

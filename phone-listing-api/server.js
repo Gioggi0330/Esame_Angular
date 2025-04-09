@@ -1,11 +1,12 @@
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
 
+app.use('/images', express.static('images'));
 app.use(bodyParser.json());
 app.use(cors({
   origin: 'http://localhost:4200',
@@ -15,15 +16,15 @@ app.use(cors({
 
 
 
-let phoneListings = [
+const phoneListings = [
   {
    id: 1,
    brand: "Google",
    model: "Pixel",
    imageurl: [
-    "/images/id1/immagine1.jpg",
-    "/images/id1/immagine2.jpg",
-    "/images/id1/immagine3.jpg"
+    "assets/images/id1/immagine1.jpg",
+    "assets/images/id1/immagine2.jpg",
+    "assets/images/id1/immagine3.jpg"
 ],
    number: "123-456-7890",
    category: "electronics",
@@ -45,12 +46,12 @@ let phoneListings = [
    brand: "Apple",
    model: "iPhone 12",
    imageurl:  [
-    "/images/id2/immagine1.jpg",
-    "/images/id2/immagine2.jpg",
-    "/images/id2/immagine3.jpg",
-    "/images/id2/immagine4.jpg",
-    "/images/id2/immagine5.jpg",
-    "/images/id2/immagine6.jpg"
+    "assets/images/id2/immagine1.jpg",
+    "assets/images/id2/immagine2.jpg",
+    "assets/images/id2/immagine3.jpg",
+    "assets/images/id2/immagine4.jpg",
+    "assets/images/id2/immagine5.jpg",
+    "assets/images/id2/immagine6.jpg"
    ],
    number: "987-654-3210",
    category: "electronics",
@@ -72,11 +73,11 @@ let phoneListings = [
    brand: "Samsung",
    model: "Galaxy S21",
    imageurl:  [
-    "/images/id3/immagine1.jpg",
-    "/images/id3/immagine2.jpg",
-    "/images/id3/immagine3.jpg",
-    "/images/id3/immagine4.jpg",
-    "/images/id3/immagine5.jpg"
+    "assets/images/id3/immagine1.jpg",
+    "assets/images/id3/immagine2.jpg",
+    "assets/images/id3/immagine3.jpg",
+    "assets/images/id3/immagine4.jpg",
+    "assets/images/id3/immagine5.jpg"
    ],
    number: "098-765-4321",
    category: "electronics",
@@ -98,11 +99,11 @@ let phoneListings = [
    brand: "Huawei",
    model: "P40 Pro",
    imageurl:[
-    "/images/id4/immagine1.jpg",
-    "/images/id4/immagine2.jpg",
-    "/images/id4/immagine3.jpg",
-    "/images/id4/immagine4.jpg",
-    "/images/id4/immagine5.jpg"
+    "assets/images/id4/immagine1.jpg",
+    "assets/images/id4/immagine2.jpg",
+    "assets/images/id4/immagine3.jpg",
+    "assets/images/id4/immagine4.jpg",
+    "assets/images/id4/immagine5.jpg"
    ],
    number: "555-666-7778",
    category: "electronics",
@@ -124,9 +125,9 @@ let phoneListings = [
    brand: "Xiaomi",
    model: "Mi 11",
    imageurl:[
-    "/images/id5/immagine1.jpg",
-    "/images/id5/immagine2.jpg",
-    "/images/id5/immagine3.jpg"
+    "assets/images/id5/immagine1.jpg",
+    "assets/images/id5/immagine2.jpg",
+    "assets/images/id5/immagine3.jpg"
    ],
    number: "222-333-4444",
    category: "electronics",
@@ -148,8 +149,8 @@ let phoneListings = [
    brand: "OnePlus",
    model: "8T Pro",
    imageurl:[
-    "/images/id6/immagine1.jpg",
-    "/images/id6/immagine2.jpg",
+    "assets/images/id6/immagine1.jpg",
+    "assets/images/id6/immagine2.jpg",
   ],
    number: "333-444-5555",
    category: "electronics",
@@ -171,8 +172,8 @@ let phoneListings = [
    brand: "Oppo",
    model: "A53",
    imageurl:[
-    "/images/id7/immagine1.jpg",
-    "/images/id7/immagine2.jpg"
+    "assets/images/id7/immagine1.jpg",
+    "assets/images/id7/immagine2.jpg"
    ],
    number: "444-555-6666",
    category: "electronics",
@@ -194,8 +195,8 @@ let phoneListings = [
    brand: "Asus",
    model: "Zenfone 6",
    imageurl:[
-    "/images/id8/immagine1.jpg",
-    "/images/id8/immagine2.jpg"
+    "assets/images/id8/immagine1.jpg",
+    "assets/images/id8/immagine2.jpg"
     ], 
    number: "555-666-7777",
    category: "electronics",
@@ -217,9 +218,9 @@ let phoneListings = [
    brand: "Google",
    model: "Pixel 4",
    imageurl:[
-    "/images/id9/immagine1.jpg",
-    "/images/id9/immagine2.jpg",
-    "/images/id9/immagine3.jpg"
+    "assets/images/id9/immagine1.jpg",
+    "assets/images/id9/immagine2.jpg",
+    "assets/images/id9/immagine3.jpg"
    ],
    number: "666-777-8888",
    category: "electronics",
@@ -241,9 +242,9 @@ let phoneListings = [
    brand: "Samsung",
    model: "S20",
    imageurl:[
-    "/images/id10/immagine1.jpg",
-    "/images/id10/immagine2.jpg",
-    "/images/id10/immagine3.jpg"
+    "assets/images/id10/immagine1.jpg",
+    "assets/images/id10/immagine2.jpg",
+    "assets/images/id10/immagine3.jpg"
    ],
    number: "777-888-9999",
    category: "electronics",
@@ -265,9 +266,9 @@ let phoneListings = [
    brand: "Huawei",
    model: "P40",
    imageurl:[
-    "/images/id11/immagine1.jpg",
-    "/images/id11/immagine2.jpg",
-    "/images/id11/immagine3.jpg"
+    "assets/images/id11/immagine1.jpg",
+    "assets/images/id11/immagine2.jpg",
+    "assets/images/id11/immagine3.jpg"
    ],
    number: "888-999-0000",
    category: "electronics",
@@ -289,8 +290,8 @@ let phoneListings = [
    brand: "Xiaomi",
    model: "Mi 10",
    imageurl:[
-    "/images/id12/immagine1.jpg",
-    "/images/id12/immagine2.jpg"
+    "assets/images/id12/immagine1.jpg",
+    "assets/images/id12/immagine2.jpg"
     ], 
    number: "999-000-1111",
    category: "electronics",
@@ -312,9 +313,9 @@ let phoneListings = [
    brand: "OnePlus",
    model: "8",
    imageurl:[
-    "/images/id13/immagine1.jpg",
-    "/images/id13/immagine2.jpg",
-    "/images/id13/immagine3.jpg"
+    "assets/images/id13/immagine1.jpg",
+    "assets/images/id13/immagine2.jpg",
+    "assets/images/id13/immagine3.jpg"
     ],
    number: "000-111-2222",
    category: "electronics",
@@ -336,8 +337,8 @@ let phoneListings = [
    brand: "Oppo",
    model: "A5",
    imageurl:[   
-    "/images/id14/immagine1.jpg",
-    "/images/id14/immagine2.jpg"
+    "assets/images/id14/immagine1.jpg",
+    "assets/images/id14/immagine2.jpg"
    ],
    number: "111-222-3333",
    category: "electronics",
@@ -359,8 +360,8 @@ let phoneListings = [
    brand: "Asus",
    model: "Zenfone 5",
    imageurl:[
-    "/images/id15/immagine1.jpg",
-    "/images/id15/immagine2.jpg"
+    "assets/images/id15/immagine1.jpg",
+    "assets/images/id15/immagine2.jpg"
     ],
    number: "222-333-4444",
    category: "electronics",
@@ -382,10 +383,10 @@ let phoneListings = [
    brand: "Nokia",
    model: "Lumia",
    imageurl:[
-    "/images/id16/immagine1.jpg",
-    "/images/id16/immagine2.jpg",
-    "/images/id16/immagine3.jpg",
-    "/images/id16/immagine4.jpg"
+    "assets/images/id16/immagine1.jpg",
+    "assets/images/id16/immagine2.jpg",
+    "assets/images/id16/immagine3.jpg",
+    "assets/images/id16/immagine4.jpg"
    ],
    number: "555-666-8888",
    category: "electronics",
@@ -407,10 +408,10 @@ let phoneListings = [
    brand: "Samsung",
    model: "Galaxy S22 Ultra",
    imageurl:[ 
-    "/images/id17/immagine1.jpg",
-    "/images/id17/immagine2.jpg",
-    "/images/id17/immagine3.jpg",
-    "/images/id17/immagine4.jpg"
+    "assets/images/id17/immagine1.jpg",
+    "assets/images/id17/immagine2.jpg",
+    "assets/images/id17/immagine3.jpg",
+    "assets/images/id17/immagine4.jpg"
    ],
    number: "555-666-8888",
    category: "electronics",
@@ -432,9 +433,9 @@ let phoneListings = [
    brand: "OnePlus",
    model: "8 Pro",
    imageurl:[
-    "/images/id18/immagine1.jpg",
-    "/images/id18/immagine2.jpg",
-    "/images/id18/immagine3.jpg"
+    "assets/images/id18/immagine1.jpg",
+    "assets/images/id18/immagine2.jpg",
+    "assets/images/id18/immagine3.jpg"
    ],
    number: "666-888-9999",
    category: "electronics",
@@ -456,8 +457,8 @@ let phoneListings = [
    brand: "Google",
    model: "Pixel 5",
    imageurl:[
-    "/images/id19/immagine1.jpg",
-    "/images/id19/immagine2.jpg",
+    "assets/images/id19/immagine1.jpg",
+    "assets/images/id19/immagine2.jpg",
    ],
    number: "777-888-9999",
    category: "electronics",
@@ -479,10 +480,10 @@ let phoneListings = [
    brand: "Samsung",
    model: "Galaxy S22",
    imageurl:[
-    "/images/id20/immagine1.jpg",
-    "/images/id20/immagine2.jpg",
-    "/images/id20/immagine3.jpg",
-    "/images/id20/immagine4.jpg"
+    "assets/images/id20/immagine1.jpg",
+    "assets/images/id20/immagine2.jpg",
+    "assets/images/id20/immagine3.jpg",
+    "assets/images/id20/immagine4.jpg"
    ],
    number: "777-888-9999",
    category: "electronics",
@@ -505,10 +506,10 @@ let phoneListings = [
     brand: "Apple",
     model: "iPhone 15 Pro",
     imageurl: [
-      "/images/id22/immagine1.jpg",
-      "/images/id22/immagine2.jpg",
-      "/images/id22/immagine3.jpg",
-      "/images/id22/immagine4.jpg"
+     "assets/images/id22/immagine1.jpg",
+     "assets/images/id22/immagine2.jpg",
+     "assets/images/id22/immagine3.jpg",
+     "assets/images/id22/immagine4.jpg"
     ],
     number: "111-222-3333",
     category: "electronics",
@@ -530,9 +531,9 @@ let phoneListings = [
     brand: "Google",
     model: "Pixel 8 Pro",
     imageurl: [
-      "/images/id23/immagine1.jpg",
-      "/images/id23/immagine2.jpg",
-      "/images/id23/immagine3.jpg",
+     "assets/images/id23/immagine1.jpg",
+     "assets/images/id23/immagine2.jpg",
+     "assets/images/id23/immagine3.jpg",
     ],
     number: "222-333-4444",
     category: "electronics",
@@ -554,9 +555,9 @@ let phoneListings = [
     brand: "Xiaomi",
     model: "13 Ultra",
     imageurl: [
-      "/images/id24/immagine1.jpg",
-      "/images/id24/immagine2.jpg",
-      "/images/id24/immagine3.jpg",
+     "assets/images/id24/immagine1.jpg",
+     "assets/images/id24/immagine2.jpg",
+     "assets/images/id24/immagine3.jpg",
     ],
     number: "333-444-5555",
     category: "electronics",
@@ -578,10 +579,10 @@ let phoneListings = [
     brand: "Samsung",
     model: "Galaxy S23 Ultra",
     imageurl: [
-      "/images/id25/immagine1.jpg",
-      "/images/id25/immagine2.jpg",
-      "/images/id25/immagine3.jpg",
-      "/images/id25/immagine4.jpg",
+     "assets/images/id25/immagine1.jpg",
+     "assets/images/id25/immagine2.jpg",
+     "assets/images/id25/immagine3.jpg",
+     "assets/images/id25/immagine4.jpg",
     ],
     number: "444-555-6666",
     category: "electronics",
@@ -603,11 +604,11 @@ let phoneListings = [
     brand: "Apple",
     model: "iPhone 14",
     imageurl: [
-      "/images/id26/immagine1.jpg",
-      "/images/id26/immagine2.jpg",
-      "/images/id26/immagine3.jpg",
-      "/images/id26/immagine4.jpg",
-      "/images/id26/immagine5.jpg",
+     "assets/images/id26/immagine1.jpg",
+     "assets/images/id26/immagine2.jpg",
+     "assets/images/id26/immagine3.jpg",
+     "assets/images/id26/immagine4.jpg",
+     "assets/images/id26/immagine5.jpg",
     ],
     number: "555-666-7777",
     category: "electronics",
@@ -629,10 +630,10 @@ let phoneListings = [
     brand: "Google",
     model: "Pixel 7a",
     imageurl: [
-      "/images/id27/immagine1.jpg",
-      "/images/id27/immagine2.jpg",
-      "/images/id27/immagine3.jpg",
-      "/images/id27/immagine4.jpg",
+     "assets/images/id27/immagine1.jpg",
+     "assets/images/id27/immagine2.jpg",
+     "assets/images/id27/immagine3.jpg",
+     "assets/images/id27/immagine4.jpg",
     ],
     number: "666-777-8888",
     category: "electronics",
@@ -654,9 +655,9 @@ let phoneListings = [
     brand: "Xiaomi",
     model: "12T Pro",
     imageurl:[
-      "/images/id28/immagine1.jpg",
-      "/images/id28/immagine2.jpg",
-      "/images/id28/immagine3.jpg"
+     "assets/images/id28/immagine1.jpg",
+     "assets/images/id28/immagine2.jpg",
+     "assets/images/id28/immagine3.jpg"
     ],
     number: "777-888-9999",
     category: "electronics",
@@ -678,11 +679,11 @@ let phoneListings = [
     brand: "Samsung",
     model: "Galaxy Z Flip5",
     imageurl: [
-      "/images/id29/immagine1.jpg",
-      "/images/id29/immagine2.jpg",
-      "/images/id29/immagine3.jpg",
-      "/images/id29/immagine4.jpg",
-      "/images/id29/immagine5.jpg",
+     "assets/images/id29/immagine1.jpg",
+     "assets/images/id29/immagine2.jpg",
+     "assets/images/id29/immagine3.jpg",
+     "assets/images/id29/immagine4.jpg",
+     "assets/images/id29/immagine5.jpg",
     ],
     number: "888-999-0000",
     category: "electronics",
@@ -704,9 +705,9 @@ let phoneListings = [
     brand: "Apple",
     model: "iPhone SE (2022)",
     imageurl: [
-      "/images/id30/immagine1.jpg",
-      "/images/id30/immagine2.jpg",
-      "/images/id30/immagine3.jpg"],
+     "assets/images/id30/immagine1.jpg",
+     "assets/images/id30/immagine2.jpg",
+     "assets/images/id30/immagine3.jpg"],
     number: "999-000-1111",
     category: "electronics",
     price: 429,
@@ -727,8 +728,8 @@ let phoneListings = [
     brand: "Google",
     model: "Pixel Fold",
     imageurl: [
-      "/images/id31/immagine1.jpg",
-      "/images/id31/immagine2.jpg",
+     "assets/images/id31/immagine1.jpg",
+     "assets/images/id31/immagine2.jpg",
     ],
     number: "000-111-2222",
     category: "electronics",
@@ -750,9 +751,9 @@ let phoneListings = [
     brand: "Xiaomi",
     model: "Redmi Note 12 Pro",
     imageurl: [
-      "/images/id32/immagine1.jpg",
-      "/images/id32/immagine2.jpg",
-      "/images/id32/immagine3.jpg",
+     "assets/images/id32/immagine1.jpg",
+     "assets/images/id32/immagine2.jpg",
+     "assets/images/id32/immagine3.jpg",
     ],
     number: "123-456-7890",
     category: "electronics",
@@ -774,10 +775,10 @@ let phoneListings = [
     brand: "Samsung",
     model: "Galaxy A54",
     imageurl: [
-      "/images/id33/immagine1.jpg",
-      "/images/id33/immagine2.jpg",
-      "/images/id33/immagine3.jpg",
-      "/images/id33/immagine4.jpg",
+     "assets/images/id33/immagine1.jpg",
+     "assets/images/id33/immagine2.jpg",
+     "assets/images/id33/immagine3.jpg",
+     "assets/images/id33/immagine4.jpg",
     ],
     number: "234-567-8901",
     category: "electronics",
@@ -799,12 +800,12 @@ let phoneListings = [
     brand: "Apple",
     model: "iPhone 13 mini",
     imageurl: [
-      "/images/id34/immagine1.jpg",
-      "/images/id34/immagine2.jpg",
-      "/images/id34/immagine3.jpg",
-      "/images/id34/immagine4.jpg",
-      "/images/id34/immagine5.jpg",
-      "/images/id34/immagine6.jpg"
+     "assets/images/id34/immagine1.jpg",
+     "assets/images/id34/immagine2.jpg",
+     "assets/images/id34/immagine3.jpg",
+     "assets/images/id34/immagine4.jpg",
+     "assets/images/id34/immagine5.jpg",
+     "assets/images/id34/immagine6.jpg"
     ],
     number: "345-678-9012",
     category: "electronics",
@@ -826,9 +827,9 @@ let phoneListings = [
     brand: "Google",
     model: "Pixel 6a",
     imageurl: [
-      "/images/id35/immagine1.jpg",
-      "/images/id35/immagine2.jpg",
-      "/images/id35/immagine3.jpg"
+     "assets/images/id35/immagine1.jpg",
+     "assets/images/id35/immagine2.jpg",
+     "assets/images/id35/immagine3.jpg"
     ],
     number: "456-789-0123",
     category: "electronics",
@@ -850,9 +851,9 @@ let phoneListings = [
     brand: "Xiaomi",
     model: "POCO F5",
     imageurl: [
-      "/images/id36/immagine1.jpg",
-      "/images/id36/immagine2.jpg",
-      "/images/id36/immagine3.jpg"
+     "assets/images/id36/immagine1.jpg",
+     "assets/images/id36/immagine2.jpg",
+     "assets/images/id36/immagine3.jpg"
     ],
     number: "567-890-1234",
     category: "electronics",
@@ -874,11 +875,11 @@ let phoneListings = [
     brand: "Samsung",
     model: "Galaxy Z Fold5",
     imageurl: [
-      "/images/id37/immagine1.jpg",
-      "/images/id37/immagine2.jpg",
-      "/images/id37/immagine3.jpg",
-      "/images/id37/immagine4.jpg",
-      "/images/id37/immagine5.jpg",
+     "assets/images/id37/immagine1.jpg",
+     "assets/images/id37/immagine2.jpg",
+     "assets/images/id37/immagine3.jpg",
+     "assets/images/id37/immagine4.jpg",
+     "assets/images/id37/immagine5.jpg",
     ],
     number: "678-901-2345",
     category: "electronics",
@@ -900,12 +901,12 @@ let phoneListings = [
     brand: "Apple",
     model: "iPhone 12",
     imageurl: [
-      "/images/id38/immagine1.jpg",
-      "/images/id38/immagine2.jpg",
-      "/images/id38/immagine3.jpg",
-      "/images/id38/immagine4.jpg",
-      "/images/id38/immagine5.jpg",
-      "/images/id38/immagine6.jpg"
+     "assets/images/id38/immagine1.jpg",
+     "assets/images/id38/immagine2.jpg",
+     "assets/images/id38/immagine3.jpg",
+     "assets/images/id38/immagine4.jpg",
+     "assets/images/id38/immagine5.jpg",
+     "assets/images/id38/immagine6.jpg"
     ],
     number: "789-012-3456",
     category: "electronics",
@@ -927,7 +928,7 @@ let phoneListings = [
     brand: "Google",
     model: "Pixel 5a",
     imageurl: [
-      "/images/id39/immagine1.jpg",
+     "assets/images/id39/immagine1.jpg",
     ],
     number: "890-123-4567",
     category: "electronics",
@@ -949,8 +950,8 @@ let phoneListings = [
     brand: "Xiaomi",
     model: "Black Shark 5 Pro",
     imageurl: [
-      "/images/id40/immagine1.jpg",
-      "/images/id40/immagine2.jpg",
+     "assets/images/id40/immagine1.jpg",
+     "assets/images/id40/immagine2.jpg",
     ],
     number: "901-234-5678",
     category: "electronics",
@@ -972,6 +973,9 @@ let phoneListings = [
 
 ];
 
+app.get('/phoneListings', (req, res) => {
+  res.json(phoneListings);
+});
 
 // Search endpoint
 app.get('/search', (req, res) => {
@@ -995,12 +999,15 @@ app.get('/phoneListings', (req, res) => {
 res.json(phoneListings);
 });
 
-// Get single phone
+// Get phone by ID
 app.get('/phoneListings/:id', (req, res) => {
-const id = parseInt(req.params.id);
-const phone = phoneListings.find(p => p.id === id);
-if (!phone) res.status(404).json({ error: 'Phone not found' });
-res.json(phone);
+  const id = parseInt(req.params.id);
+  const phone = phoneListings.find(p => p.id === id);
+  if (!phone) {
+    res.status(404).json({ error: 'Phone not found' });
+  } else {
+    res.json(phone);
+  }
 });
 
 // Create new phone
