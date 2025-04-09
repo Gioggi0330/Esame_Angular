@@ -27,7 +27,7 @@ interface Phone {
   providedIn: 'root'
 })
 export class PhoneService {
-  private apiUrl = 'http://localhost:3001/phoneListings';
+  private apiUrl = 'http://localhost:3000/phoneListings';
 
   constructor(private http: HttpClient) { }
 
@@ -40,7 +40,7 @@ export class PhoneService {
   }
 
   searchPhones(query: string): Observable<any> {
-    return this.http.get(`http://localhost:3001/search?q=${encodeURIComponent(query)}`)
+    return this.http.get(`http://localhost:3000/search?q=${encodeURIComponent(query)}`)
       .pipe(
         catchError(err => {
           console.error('Search API error:', err);
