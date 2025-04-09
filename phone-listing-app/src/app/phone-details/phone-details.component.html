@@ -3,7 +3,11 @@
 
   <div class="phone-content">
     <div class="image-gallery">
-      <img *ngFor="let image of phone.imageurl" [src]="image" [alt]="phone.model" class="phone-image">
+      <div class="carousel">
+        <button class="carousel-button prev" (click)="prevImage()">&#10094;</button>
+        <img [src]="phone.imageurl[currentImageIndex]" [alt]="phone.model" class="phone-image">
+        <button class="carousel-button next" (click)="nextImage()">&#10095;</button>
+      </div>
     </div>
 
     <button class="buy">Compra Ora</button>

@@ -33,8 +33,9 @@
 
 
 .phone-image {
-  width: 50%;
-  height: 40%;
+  width: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
   z-index: 2;
   border-radius:8px;
@@ -154,12 +155,19 @@
 }
 
 /* Stile del carosello */
-.carousel {
+.image-gallery {
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin: 20px auto;
-  text-align: center;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .carousel-image {
@@ -169,28 +177,26 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-control {
+.carousel-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  font-size: 24px;
   padding: 10px;
   cursor: pointer;
   z-index: 1;
-  border-radius: 50%;
 }
 
-.carousel-control.prev {
+.carousel-button.prev {
   left: 10px;
 }
 
-.carousel-control.next {
+.carousel-button.next {
   right: 10px;
 }
 
-.carousel-control:hover {
+.carousel-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
