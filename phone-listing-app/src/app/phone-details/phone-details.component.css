@@ -51,8 +51,8 @@
 }
 .buy {
   position: absolute;
-  top: 68%;
-  right: 70%;
+  top: 90%; 
+  right: 59%; 
   transform: translate(50%, -50%);
   background: linear-gradient(45deg, #0ca9e2, #4a9905);
   color: white;
@@ -138,6 +138,24 @@
   transform: translateX(10px);
 }
 
+.buy-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buy {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buy:hover {
+  background-color: #0056b3;
+}
+
 .back-button {
   position: relative;
   z-index: 2;
@@ -161,6 +179,57 @@
   max-width: 500px;
   margin: auto;
   overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+button:hover {
+  color: #000;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators span {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.carousel-indicators span.active {
+  background-color: #333;
 }
 
 .carousel {

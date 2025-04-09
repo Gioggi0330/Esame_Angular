@@ -8,9 +8,18 @@
         <img [src]="phone.imageurl[currentImageIndex]" [alt]="phone.model" class="phone-image">
         <button class="carousel-button next" (click)="nextImage()">&#10095;</button>
       </div>
+      <div class="carousel-indicators">
+        <span 
+          *ngFor="let image of phone.imageurl; let i = index" 
+          [class.active]="i === currentImageIndex"
+          (click)="currentImageIndex = i">
+        </span>
+      </div>
     </div>
 
-    <button class="buy">Compra Ora</button>
+    <div class="buy-button-container">
+      <button class="buy">Compra Ora</button>
+    </div>
 
     <div class="phone-specs">
       <h1>{{ phone.brand }} {{ phone.model }}</h1>
@@ -40,4 +49,4 @@
       <p><strong>Connettività:</strong> {{ phone.connectivity.join(', ') }}</p>
     </div>
   </div>
-  </div>
+</div>

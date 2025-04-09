@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PhoneListComponent implements OnInit {
   phones: any[] = [];
+  carouselPhones: any[] = [];
   searchQuery: string = '';
   isSearching: boolean = false;
   searchError: string | null = null;
@@ -31,9 +32,9 @@ export class PhoneListComponent implements OnInit {
       next: (data) => {
         this.phones = data.map(phone => ({
           ...phone,
-          imageUrl: `assets/images/phones/${phone.id}/image1.jpg` // Aggiunge il percorso dell'immagine
         }));
         this.isSearching = false;
+        this.carouselPhones = [this.phones[0],this.phones[1],this.phones[2]]
       },
       error: (err) => {
         console.error('Error loading phones:', err);

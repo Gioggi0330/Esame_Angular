@@ -24,12 +24,12 @@
   {{ searchError }}
 </div>
 
-<app-carousel></app-carousel>
+<app-carousel [slides]="carouselPhones"></app-carousel>
 
 <div *ngIf="!isSearching" class="phone-grid">
   <div *ngFor="let phone of phones" class="phone-card" (click)="goToDetails(phone.id)">
     <div class="card-image-container">
-      <img [src]="phone.imageurl" [alt]="phone.model" class="card-image">
+      <img [src]="phone.imageurl[0]" [alt]="phone.model" class="card-image">
     </div>
     <div class="phone-info">
       <h3>{{ phone.brand }} {{ phone.model }}</h3>
@@ -38,15 +38,6 @@
         <span class="view-details">View Details →</span>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="phone-list">
-  <div *ngFor="let phone of phones" class="phone-item">
-    <img [src]="phone.imageUrl" [alt]="phone.model" class="phone-image">
-    <h2>{{ phone.brand }} {{ phone.model }}</h2>
-    <p><strong>Prezzo:</strong> ${{ phone.price }}</p>
-    <button (click)="goToDetails(phone.id)">Dettagli</button>
   </div>
 </div>
 
