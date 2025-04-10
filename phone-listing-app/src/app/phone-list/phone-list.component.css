@@ -1,7 +1,8 @@
 /* General styling */
 .search-container {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 10px; /* Spaziatura tra gli elementi */
   padding: 0 20px;
   max-width: 800px;
   margin: 20px auto;
@@ -225,6 +226,45 @@
   height: auto;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+/* Filter container */
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+.clear-filter {
+  background-color: #6c757d;
+}
+
+.clear-filter:hover {
+  background-color: #5a6268;
+}
+
+.filter-dropdown {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Keyframe Animations */

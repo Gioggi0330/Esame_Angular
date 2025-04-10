@@ -1,4 +1,13 @@
 <div class="search-container">
+  <div class="filter-container">
+    <label for="brandFilter" class="filter-label" aria-hidden="true"></label>
+    <select id="brandFilter" (change)="filterByBrand($event)" class="filter-dropdown">
+      <option value="">Show All</option>
+      <option *ngFor="let brand of availableBrands" [value]="brand">
+        {{ brand }}
+      </option>
+    </select>
+  </div>
   <input
     type="text"
     [(ngModel)]="searchQuery"
@@ -27,7 +36,7 @@
 <app-carousel [slides]="carouselPhones"></app-carousel>
 
 <div *ngIf="!isSearching" class="phone-grid">
-  <div *ngFor="let phone of phones" class="phone-card" (click)="goToDetails(phone.id)">
+  <div *ngFor="let phone of filteredPhones" class="phone-card" (click)="goToDetails(phone.id)">
     <div class="card-image-container">
       <img [src]="phone.imageurl[0]" [alt]="phone.model" class="card-image">
     </div>
