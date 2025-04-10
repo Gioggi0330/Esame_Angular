@@ -76,8 +76,7 @@ const phoneListings = [
     "assets/images/id3/immagine1.jpg",
     "assets/images/id3/immagine2.jpg",
     "assets/images/id3/immagine3.jpg",
-    "assets/images/id3/immagine4.jpg",
-    "assets/images/id3/immagine5.jpg"
+    "assets/images/id3/immagine4.jpg"
    ],
    number: "098-765-4321",
    category: "electronics",
